@@ -1,0 +1,31 @@
+
+<div class="main-box">
+    <mat-card style="margin: 50px;height: 400px;">
+    <!-- <div>{{currentProduct | json}}</div> -->
+    <h3>CATEGORY : <span style="color
+        :#3f51b5;font-family:'Times New Roman', Times, serif;">{{currentProduct.category |uppercase}}</span></h3>
+    <div class="box">
+        <div class="row">
+            <div class="col-lg-5">
+                <img width="70%" height="50%" style="border-radius: 10%;" src="{{currentProduct.image}}" alt="">
+            </div>
+            <div class="col-lg-6">
+                
+                <h2> Title : :{{currentProduct.title}}</h2>
+                <br>
+                <p>{{currentProduct.description}}</p>
+                <br>
+                <p style="font-weight: bold;font-size: 18px;">Price : <span class="text-success">{{currentProduct.price | currency:'INR'}}</span>
+                     &nbsp;&nbsp; <span class="text-dark">Rating :{{currentProduct.rating.rate}}</span>
+
+                     &nbsp;&nbsp; <span class="text-dark">Stock :{{currentProduct.rating.count}}</span>
+                    </p>
+                    <button routerLink="/products" class="btn btn-warning text-white form-control" style="margin-bottom: 5px;">More Products</button>
+                    <button (click)="addToCart(currentProduct)" class="form-control btn btn-outline-success">Add Product</button>
+
+            </div>
+
+        </div>
+    </div>
+</mat-card>
+</div>

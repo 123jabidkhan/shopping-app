@@ -1,0 +1,14 @@
+button:click{
+box-shadow: none;
+border: none;
+}
+
+mat-card img{
+    transition: .3s ease-in-out;
+}
+mat-card img:hover{
+    transition: .3s ease-in-out;
+    transform: scale(1.1);
+
+}
+

@@ -1,0 +1,55 @@
+<div class="main-box">
+    <mat-card  class="m-5">
+
+        <ng-container *ngIf="products.length == 0">
+            <h2>My Cart</h2>
+            <div class="no-cart-item">
+               <div style="margin-right: 70px;">
+                <mat-icon style="font-size: 100px;" color="warn">production_quantity_limits</mat-icon>
+               </div>
+               <h2>Your cart is emprty !</h2>
+               <p>Add item to it now</p>
+               <button routerLink='/products' mat-raised-button color="primary">Shop Now</button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="products.length != 0">
+            <table class="table  table-bordered">
+                <thead>
+                    <tr>
+                        <th>S No</th>
+                        <th>Item Name</th>
+                        <th>Image</th>
+                        <th>Total</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{product.title}}</td>
+                        <td><img width="70px" width="100px" src="{{product.image}}" alt="loding.."> </td>
+                        <td>{{product.total}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>    
+                            <button (click)="removeCartItem(product)" mat-icon-button color="warn"> <mat-icon>delete</mat-icon> </button>
+                            <button routerLink='/products' mat-icon-button color="primary"><mat-icon>add</mat-icon></button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div style="display: flex;flex-direction: row-reverse;">
+               
+                &nbsp;&nbsp;   <h2>Grand Total : {{grandTotal}}</h2>&nbsp;&nbsp;
+                <div><button mat-raised-button  color="warn" (click)="removeItems()">Clear Cart</button></div>&nbsp;&nbsp;
+                <div>
+                    <button mat-raised-button color="warn"  routerLink="/products">Shop More</button>
+                </div>&nbsp;&nbsp;
+            </div>
+        </ng-container>
+
+    </mat-card>
+    
+</div>
